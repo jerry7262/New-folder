@@ -1,0 +1,40 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* LIGHT MODE */
+.light {
+  background: #ffffff;
+  color: #000;
+}
+
+/* DARK MODE */
+.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Smooth transition */
+body, .light, .dark {
+  transition: all 0.3s ease;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111;
+}
+
+/* Headings = premium look */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.1;
+}
+
+/* Accent color (GOLD THEME) */
+:root {
+  --gold: #c5a367;
+  --dark: #111;
+  --light-gray: #f8f8f8;
+}

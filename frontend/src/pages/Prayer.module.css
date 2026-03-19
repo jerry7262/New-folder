@@ -1,0 +1,66 @@
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:60px 40px;
+  text-align:center;
+}
+
+.title{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#555;
+  margin-bottom:40px;
+}
+
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.form input,
+.form textarea{
+  padding:15px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.form textarea{
+  min-height:120px;
+}
+
+.form button{
+  background:#1e1e1e;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.form button:hover{
+  background:#333;
+}
+
+.extra{
+  margin-top:50px;
+}
+
+.extra p{
+  color:#555;
+  line-height:1.7;
+}
+.prayerList {
+  margin-top: 30px;
+}
+
+.prayerCard {
+  background: #f5f5f5;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+}

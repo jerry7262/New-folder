@@ -1,0 +1,74 @@
+.hero {
+    height: 89vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Combined background shorthand: uses one overlay and the image */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../assets/Hero.avif") center/cover;
+    background-attachment: fixed;
+    color: rgb(231, 227, 227);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Second overlay layer */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.heroContent {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+}
+
+.heroContent h1 {
+    font-size: 64px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.heroContent p {
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.heroBtn {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    border: none; /* Removed redundant gold border */
+    background: linear-gradient(45deg, #ffd700, #ffae00);
+    color: black;
+    transition: 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.heroBtn:hover {
+    background: var(--gold, #ffd700);
+    color: black;
+    /* Triggers the bounce animation defined below */
+    animation: bouncePop 0.8s ease-in-out;
+}
+
+/* The Bounce/RubberBand Effect */
+@keyframes bouncePop {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1); }
+}

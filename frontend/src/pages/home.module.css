@@ -1,0 +1,108 @@
+.categoryButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  /* margin-bottom: 20px; */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.categoryButtons button {
+  padding: 10px 18px;
+  border: none;
+  background: rgba(0,0,0,0.5);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.categoryButtons button:hover {
+  transform: translateY(-2px);
+  background:rgba(0,0,0,0.1);
+}
+
+.activeBtn {
+  background: #2c3e50;
+  color: white;
+}
+
+.articles{
+  padding:80px 40px;
+}
+
+.articles h2{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+}
+.articleGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:30px;
+}
+
+.articleCard {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card-bg , white);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition:all 0.4s ease;
+  cursor: pointer;
+}
+
+.articleCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.articleCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4 ease;
+}
+.articleCard:hover img{
+  transform: scale(1.1);
+}
+.articleCard h3 {
+  padding: 12px;
+  font-size: 20px;
+}
+
+.articleCard p {
+  padding: 0 12px 15px;
+  color: #666;
+  font-size: 14px;
+}
+.loadMore{
+  margin-top: 40px auto;
+  display: block;
+   padding: 10px 25px;
+  border: none;
+  background: #2c3e50;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.loadMore:hover {
+  background: #1a252f;
+  transform: translateY(-2px);
+}
+.services{
+    padding: 80px 40px;
+    background: rgba(0,0,0,0.03);
+}
+.servicesTitle{
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 50px;
+}
+.serviceGrid{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px , 1fr)) ;
+    gap: 30px;
+}
+
+

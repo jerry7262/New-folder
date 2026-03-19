@@ -1,0 +1,39 @@
+.card {
+  height: 260px;
+  border-radius: 20px;
+  background: url("../assets/serviceBg.jpg") center/cover no-repeat;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4 ease;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+.overlay{
+  position:absolute;
+  bottom:0;
+  padding:20px;
+  color:white;
+  width:100%;
+  background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+}
+
+.overlay h3{
+  font-size: 20px;
+  margin-bottom:10px;
+}
+
+.overlay p{
+  font-size:14px;
+  margin-bottom:12px;
+  opacity: 0.9;
+}
+
+.btn{
+  color:#ffd700;
+  text-decoration:none;
+  font-weight:bold;
+  transition: 0.3 ease;
+}

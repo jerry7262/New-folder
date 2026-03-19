@@ -1,0 +1,45 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* IMAGE */
+.container img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* TITLE */
+.container h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+/* CONTENT */
+.container p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.container button {
+  padding: 10px 20px;
+  border: none;
+  background: #2c3e50;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container button:hover {
+  background: #1a252f;
+}

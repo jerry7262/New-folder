@@ -1,0 +1,85 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* CONTENT */
+.content {
+  margin-top: 20px;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #333;
+}
+
+/* RELATED */
+.related {
+  margin-top: 40px;
+}
+
+.related h2 {
+  margin-bottom: 15px;
+}
+
+.relatedGrid {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h4 {
+  margin-top: 8px;
+}
+
+/* BUTTON */
+.backBtn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  background: #2c3e50;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  background: #1a252f;
+}

@@ -1,0 +1,83 @@
+.bibleContainer{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 40px;
+  text-align:center;
+}
+
+.title{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.intro{
+  color:#555;
+  margin-bottom:50px;
+  font-size:18px;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+
+/* CARD */
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:400px;
+  object-fit:contain;
+}
+
+.cardContent{
+  padding:20px;
+}
+
+.cardContent h3{
+  margin-bottom:10px;
+}
+
+.cardContent p{
+  color:#555;
+  line-height:1.6;
+}
+.readMoreBtn{
+  display:block;
+  margin:40px auto 0;
+  padding:12px 28px;
+  font-size:16px;
+  background:#1e1e1e;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.readMoreBtn:hover{
+  background:#333;
+}
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+}
