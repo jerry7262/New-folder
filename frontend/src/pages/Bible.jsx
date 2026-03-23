@@ -1,51 +1,127 @@
-import React from "react";
-import styles from "./Bible.module.css";
+import React, { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import styles from "./BibleReader.module.css";
+import { TRANSLATION_OPTIONS, fetchBibleVerse } from "../utils/bibleApi";
+import { addBookmark } from "../utils/bookmarks";
 
-import { bibleStories } from "../data/bibleStories"
-import { useNavigate } from "react-router-dom"
+const _motion = motion;
 
-const Bible = () => {
-  const navigate = useNavigate()
+const QUICK_REFERENCES = ["John 3:16", "Psalm 23", "Romans 8:38-39"];
+
+export default function Bible() {
+  const [reference, setReference] = useState("John 3:16");
+  const [translation, setTranslation] = useState("kjv");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [result, setResult] = useState(null);
+  const [saved, setSaved] = useState(false);
+
+  const canSearch = useMemo(() => reference.trim().length > 0, [reference]);
+
+  const search = async () => {
+    setError("");
+    setSaved(false);
+    setLoading(true);
+    try {
+      const data = await fetchBibleVerse(reference, translation);
+      setResult(data);
+    } catch (err) {
+      setResult(null);
+      setError(err?.message || "Could not fetch verse.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className={styles.bibleContainer}>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Full Bible Reader</h1>
+      <p className={styles.subtitle}>Search verses by reference and choose a translation.</p>
 
-      <h1 className={styles.title}>Bible Stories</h1>
+      <div className={styles.form}>
+        <input
+          className={styles.input}
+          value={reference}
+          onChange={(e) => setReference(e.target.value)}
+          placeholder="e.g. John 3:16"
+        />
 
-      <p className={styles.intro}>
-        Explore some of the most important and inspiring stories from the Bible
-        that have guided millions of people for centuries.
-      </p>
+        <select
+          className={styles.select}
+          value={translation}
+          onChange={(e) => setTranslation(e.target.value)}
+          aria-label="Bible translation"
+        >
+          {TRANSLATION_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
 
-      <div className={styles.grid}>
+        <motion.button
+          className={styles.btn}
+          onClick={search}
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          disabled={!canSearch || loading}
+        >
+          {loading ? "Searching..." : "Search"}
+        </motion.button>
+      </div>
 
-        {bibleStories.map((story) => (
-
-          <div
-            className={styles.card}
-            key={story.id}
-            onClick={() => navigate(`/bible/${story.id}`)}
+      <div className={styles.examples} aria-label="Quick references">
+        {QUICK_REFERENCES.map((r) => (
+          <button
+            key={r}
+            className={styles.chip}
+            type="button"
+            onClick={() => {
+              setReference(r);
+              setSaved(false);
+            }}
           >
+            {r}
+          </button>
+        ))}
+      </div>
 
-            <img src={story.image} alt={story.title} />
+      {loading && <div className={styles.loading}>Looking up verse...</div>}
+      {error && <div className={styles.error}>{error}</div>}
 
-            <div className={styles.cardContent}>
-              <h3>{story.title}</h3>
-              <p>{story.content.slice(0, 80)}...</p>
-            </div>
-
+      {result && (
+        <motion.div
+          className={styles.card}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className={styles.cardHeader}>
+            <div className={styles.reference}>{result.reference}</div>
+            <div className={styles.translationTag}>{result.translation_name}</div>
           </div>
 
-        ))}
+          <div className={styles.verseText}>"{(result.text || "").trim()}"</div>
 
-      </div>
-      <button
-        className={styles.readMoreBtn}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        Back to top
-      </button>
+          <div className={styles.actions}>
+            <motion.button
+              className={styles.bookmarkBtn}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const res = addBookmark({
+                  reference: result.reference,
+                  translation: result.translation_name || translation,
+                  text: result.text,
+                });
+                setSaved(!!res?.added);
+              }}
+            >
+              {saved ? "Bookmarked" : "Bookmark"}
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
-};
-
-export default Bible;
+}

@@ -1,8 +1,9 @@
 .container {
   max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 40px 20px 50px;
   text-align: center;
+  animation: pageFadeUp 0.7s ease-out;
 }
 
 .title {
@@ -18,8 +19,69 @@
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
+  padding: 10px 0 0;
+}
+
+.searchRow{
+  display:flex;
+  justify-content:center;
+  margin: 0 auto 18px;
+  padding: 0 10px;
+}
+
+.searchInput{
+  width: min(720px, 100%);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,0.18);
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  font-size:16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+}
+
+.letterRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+  justify-content:center;
+  margin-bottom: 18px;
+}
+
+.letterBtn,
+.letterBtnActive{
+  border:none;
+  cursor:pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 13px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(15,23,42,0.14);
+  color: #0f172a;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.letterBtn:hover{
+  transform: translateY(-1px);
+}
+
+.letterBtnActive{
+  background: rgba(250,204,21,0.25);
+  border-color: rgba(250,204,21,0.55);
+  color: #854d0e;
+}
+
+.noResults{
+  grid-column: 1 / -1;
+  padding: 26px 16px;
+  background: rgba(15,23,42,0.03);
+  border: 1px dashed rgba(15,23,42,0.18);
+  border-radius: 16px;
+  color: #555;
+  font-weight: 800;
 }
 
 /* CARD */
@@ -28,11 +90,12 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(15,23,42,0.18);
 }
 
 .card h3 {
@@ -43,4 +106,29 @@
 .card p {
   color: #444;
   line-height: 1.6;
+}
+
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px){
+  .container{
+    padding: 30px 16px 40px;
+  }
+
+  .title{
+    font-size: 28px;
+  }
+
+  .card{
+    min-width: 220px;
+  }
 }

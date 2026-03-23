@@ -64,3 +64,47 @@
   margin-top: 10px;
   border-radius: 10px;
 }
+
+.prayerTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.prayerName{
+  font-size:16px;
+  font-weight:800;
+}
+
+.prayerMessage{
+  margin-top:8px;
+  color:#333;
+  line-height:1.7;
+  text-align:left;
+}
+
+.amenBtn,
+.amenBtnActive{
+  border:none;
+  cursor:pointer;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:800;
+  background:rgba(30,41,59,0.08);
+  border:1px solid rgba(30,41,59,0.18);
+  color:#0f172a;
+  transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  white-space:nowrap;
+}
+
+.amenBtn:hover{
+  transform:translateY(-1px);
+  background:rgba(30,41,59,0.12);
+}
+
+.amenBtnActive{
+  background:rgba(250,204,21,0.28);
+  border-color:rgba(250,204,21,0.55);
+  color:#854d0e;
+}

@@ -2,6 +2,7 @@
   max-width: 1200px;
   margin: auto;
   padding: 60px 30px;
+  animation: pageFadeUp 0.7s ease-out;
 }
 
 .title {
@@ -19,7 +20,7 @@
   align-items: center;
   gap: 60px;
   margin-bottom: 90px;
-  transition: 0.5s;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .section:hover {
@@ -96,5 +97,16 @@
 
   .reverse {
     flex-direction: column;
+  }
+}
+
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

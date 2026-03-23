@@ -2,32 +2,44 @@
  display:flex;
  justify-content:space-between;
  align-items:center;
- padding:20px 40px;
- background:rgba(0,0,0,0.5);
- backdrop-filter: blur(10px);
+ padding:16px 48px;
+ background:rgba(4, 7, 17, 0.75);
+ backdrop-filter: blur(18px);
  position: sticky;
  top: 0;
  z-index: 1000;
+ box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+ transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .logo{
- font-size: 34px;
- font-weight:bold;
- letter-spacing: 1px;
- color: yellow;
+ font-size: 28px;
+ font-weight:800;
+ letter-spacing: 0.12em;
+ text-transform:uppercase;
+ color: #f5f5f5;
+ position: relative;
+ padding-right: 12px;
 }
 
 .navLinks{
  list-style:none;
  display:flex;
- gap:35px;
+ gap:28px;
+ align-items: center;
 }
 
 .navLinks a{
  text-decoration:none;
- color:white;
+ color:rgba(255,255,255,0.86);
  font-weight:500;
  position: relative;
+ font-size: 0.95rem;
+ letter-spacing: 0.04em;
+ text-transform: uppercase;
+ padding-bottom: 4px;
+ transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .navLinks a::after{
@@ -35,12 +47,66 @@ content: "";
 position: absolute;
 width: 0%;
 height: 2px;
-bottom: 2px;
 bottom: -5px;
 left: 0;
 background: #ffd700;
-transition: 0.3s;
+ box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+ transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .navLinks a:hover::after{
     width: 100%;
+}
+
+.navLinks a:hover{
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.navLinks button{
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #e5e7eb;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.navLinks button:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+  border-color: rgba(250, 204, 21, 0.85);
+  background: radial-gradient(circle at 10% 0%, rgba(30, 64, 175, 0.9), rgba(15, 23, 42, 0.9));
+}
+
+.navLinks button:active{
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+}
+
+@media (max-width: 768px){
+  .navbar{
+    padding: 14px 20px;
+    gap: 16px;
+  }
+
+  .logo{
+    font-size: 22px;
+    letter-spacing: 0.16em;
+  }
+
+  .navLinks{
+    gap: 18px;
+  }
+
+  .navLinks a{
+    font-size: 0.8rem;
+  }
 }

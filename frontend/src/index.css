@@ -37,4 +37,14 @@ h1, h2, h3 {
   --gold: #c5a367;
   --dark: #111;
   --light-gray: #f8f8f8;
+   --bg-primary: #ffffff;
+  --text-main: #1a1a1a;
+  --accent: #eab308;
+}
+/* Global.css */
+
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --text-main: #f5f5f5;
+  --accent: #facc15;
 }

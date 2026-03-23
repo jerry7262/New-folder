@@ -2,39 +2,46 @@
   display: flex;
   gap: 12px;
   margin-top: 40px;
-  /* margin-bottom: 20px; */
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 20px;
 }
 
 .categoryButtons button {
   padding: 10px 18px;
   border: none;
-  background: rgba(0,0,0,0.5);
-  border-radius: 25px;
+  background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.45), rgba(15, 23, 42, 0.9));
+  border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
+  color: #e5e7eb;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
 }
 
 .categoryButtons button:hover {
   transform: translateY(-2px);
-  background:rgba(0,0,0,0.1);
+  background: radial-gradient(circle at 100% 0, rgba(251, 191, 36, 0.75), rgba(15, 23, 42, 0.9));
 }
 
 .activeBtn {
-  background: #2c3e50;
-  color: white;
+  background: linear-gradient(120deg, #facc15, #f97316);
+  color: #111827;
+  box-shadow: 0 18px 45px rgba(234, 179, 8, 0.7);
 }
 
 .articles{
   padding:80px 40px;
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+  color: #e5e7eb;
 }
 
 .articles h2{
     margin-bottom: 30px;
     text-align: center;
     font-size: 32px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 .articleGrid{
   display:grid;
@@ -45,22 +52,22 @@
 .articleCard {
   border-radius: 20px;
   overflow: hidden;
-  background: var(--card-bg , white);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  transition:all 0.4s ease;
+  background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.96), rgba(226, 232, 240, 0.96));
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+  transition:transform 0.4s ease, box-shadow 0.4s ease, background 0.35s ease;
   cursor: pointer;
 }
 
 .articleCard:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.95);
 }
 
 .articleCard img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  transition: transform 0.4 ease;
+  transition: transform 0.4s ease;
 }
 .articleCard:hover img{
   transform: scale(1.1);
@@ -68,36 +75,46 @@
 .articleCard h3 {
   padding: 12px;
   font-size: 20px;
+  color: #0f172a;
 }
 
 .articleCard p {
   padding: 0 12px 15px;
-  color: #666;
+  color: #6b7280;
   font-size: 14px;
 }
 .loadMore{
-  margin-top: 40px auto;
+  margin: 40px auto 0;
   display: block;
    padding: 10px 25px;
-  border: none;
-  background: #2c3e50;
-  color: white;
-  border-radius: 25px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.96), rgba(226, 232, 240, 0.96));
+  color: #0f172a;
+  border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.4);
 }
 .loadMore:hover {
-  background: #1a252f;
+  background: linear-gradient(120deg, #facc15, #f97316);
+  color: #020617;
   transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(234, 179, 8, 0.65);
 }
 .services{
     padding: 80px 40px;
-    background: rgba(0,0,0,0.03);
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
 }
 .servicesTitle{
     text-align: center;
     font-size: 34px;
     margin-bottom: 50px;
+    color: #e5e7eb;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 .serviceGrid{
     display: grid;
@@ -105,4 +122,15 @@
     gap: 30px;
 }
 
+@media (max-width: 768px){
+  .articles,
+  .services{
+    padding: 60px 20px;
+  }
+
+  .articles h2,
+  .servicesTitle{
+    font-size: 26px;
+  }
+}
 

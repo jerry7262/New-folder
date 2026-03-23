@@ -5,12 +5,11 @@ import { articles } from "../data/articles"
 const Article = () => {
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const article = articles.find(a => a.id.toString() === id)
 
     if (!article) return <h2>Article not found</h2>
-
-    const navigate = useNavigate()
    return (
   <div className={styles.container}>
 
